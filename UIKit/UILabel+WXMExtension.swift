@@ -28,7 +28,7 @@ extension UILabel {
         }
     }
 
-    ///行与行间隔
+    /**< 行与行间隔 */
     var spaceLine: CGFloat {
         get {
             return 0.0
@@ -54,7 +54,7 @@ extension UILabel {
         }
     }
 
-    ///列与列间隔
+    /**< 列与列间隔 */
     var spaceColumn: CGFloat {
         get {
             return 0.0

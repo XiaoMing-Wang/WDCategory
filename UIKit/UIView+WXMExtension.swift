@@ -11,7 +11,7 @@ import Foundation
 
 extension UIView {
     
-    /// 起点 x
+    /**< 起点 x */
     var x: CGFloat {
         get {
             return frame.origin.x
@@ -22,7 +22,7 @@ extension UIView {
         }
     }
     
-    /// 起点 y
+    /**< 起点 y */
     var y: CGFloat {
         get {
             return frame.origin.y
@@ -33,7 +33,7 @@ extension UIView {
         }
     }
     
-    /// 宽
+    /**< 宽 */
     var width: CGFloat {
         get {
             return frame.size.width
@@ -44,7 +44,7 @@ extension UIView {
         }
     }
 
-    /// 高
+    /**< 高 */
     var height: CGFloat {
         get {
             return frame.size.height
@@ -55,7 +55,7 @@ extension UIView {
         }
     }
 
-    /// 起点 left
+    /**< 起点 left */
     var left: CGFloat {
         get {
             return frame.origin.x
@@ -66,7 +66,7 @@ extension UIView {
         }
     }
     
-    /// 起点 top
+    /**< 起点 top */
     var top: CGFloat {
         get {
             return frame.origin.y
@@ -77,7 +77,7 @@ extension UIView {
         }
     }
     
-    /// 右
+    /**< 右 */
     var right: CGFloat {
         get {
             return x + width
@@ -88,7 +88,7 @@ extension UIView {
         }
     }
     
-    /// 下
+    /**< 下 */
     var bottom: CGFloat {
         get {
             return y + height
@@ -99,7 +99,7 @@ extension UIView {
         }
     }
     
-    /// 中心 x
+    /**< 中心 x */
     var centerX: CGFloat {
         get {
             return center.x
@@ -110,7 +110,7 @@ extension UIView {
         }
     }
 
-    /// 中心 y
+    /**< 中心 y */
     var centerY: CGFloat {
         get {
             return center.y
@@ -121,7 +121,7 @@ extension UIView {
         }
     }
 
-    /// origin
+    /**< origin */
     var origin: CGPoint {
         get {
             return frame.origin
@@ -132,7 +132,7 @@ extension UIView {
         }
     }
     
-    /// size
+    /**< size */
     var size: CGSize {
         get {
             return frame.size
@@ -143,7 +143,7 @@ extension UIView {
         }
     }
     
-    /// 右
+    /**< 右 */
     var layoutRight: CGFloat {
         get {
             return right
@@ -164,7 +164,7 @@ extension UIView {
         }
     }
     
-    /// 下
+    /**< 下 */
     var layoutBottom: CGFloat {
         get {
             return bottom
@@ -185,7 +185,7 @@ extension UIView {
         }
     }
     
-    /// 圆角
+    /**< 圆角 */
     var layoutCornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -210,7 +210,7 @@ extension UIView {
         self.centerY = referenceView.height / 2
     }
         
-    /// 右边
+    /**< 右边 */
     func layoutReferenceRight(_ referenceView : UIView, _ offset : CGFloat) {
         let totalWidth = referenceView.left - left
         if (width == 0) {
@@ -220,7 +220,7 @@ extension UIView {
         }
     }
     
-    /// 下边
+    /**< 下边 */
     func layoutReferenceBottom(_ referenceView: UIView, _ offset: CGFloat) {
         let totalHeight = referenceView.top - top
         if (height == 0) {

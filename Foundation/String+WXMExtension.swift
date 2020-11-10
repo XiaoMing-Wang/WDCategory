@@ -12,7 +12,7 @@ import CommonCrypto
 
 extension String {
     
-    /// 判断是否可用
+    /**< 判断是否可用 */
     var available: Bool {
         get {
             let tempString = self
@@ -27,21 +27,21 @@ extension String {
         }
     }
 
-    /// 去掉空格
+    /**< 去掉空格 */
     var removeSpace: String {
         get {
             return self.replacingOccurrences(of: " ", with: "")
         }
     }
     
-    /// 转换成url
+    /**< 转换成url */
     var urlConvert: URL? {
         get {
             return URL(string: self) ?? nil
         }
     }
         
-    /// 字符串转字典
+    /**< 字符串转字典 */
     var jsonToDictionary: Dictionary<String, Any> {
         get {
             let aString = self
@@ -52,7 +52,7 @@ extension String {
         }
     }
                         
-    /// floatValue
+    /**< floatValue */
     var floatValue: Float {
         get {
             let string = self
@@ -64,7 +64,7 @@ extension String {
         }
     }
     
-    /// intValue
+    /**< intValue */
     var intValue: Int {
         get {
             let string = self
@@ -72,7 +72,7 @@ extension String {
         }
     }
 
-    /// intValue
+    /**< intValue */
     var int64Value: Int64 {
         get {
             let string = self
@@ -80,7 +80,7 @@ extension String {
         }
     }
     
-    /// doubleValue
+    /**< doubleValue */
     var doubleValue: Double {
         get {
             let string = self
@@ -88,7 +88,7 @@ extension String {
         }
     }
     
-    /// 保留小数
+    /**< 保留小数 */
     func preciseTdigits_k(digits: Int) -> String {
         let currentDigits = self.components(separatedBy: ".").last?.count
         if digits == currentDigits { return self }
@@ -96,7 +96,7 @@ extension String {
         return String(format: format, self.doubleValue)
     }
 
-    /** 截取字符串 */
+    /**< 截取字符串  */
     func subStringIndex_k(_ start: Int, _ count: Int) -> String {
         let aString: String = self
         let idxStart = aString.index(aString.startIndex, offsetBy: start)
@@ -106,22 +106,22 @@ extension String {
     }
     
     //MARK: 获取宽高
-    /// 获取字符串的height
+    /**< 获取字符串的height */
     func getWidthFont_k(fontSize: CGFloat) -> CGFloat {
         getSizeFont_k(fontSize: fontSize, width: CGFloat(MAXFLOAT)).width
     }
 
-    /// 获取字符串的height
+    /**< 获取字符串的height  */
     func getHeightFont_k(fontSize: CGFloat) -> CGFloat {
         getSizeFont_k(fontSize: fontSize, width: CGFloat(MAXFLOAT)).height
     }
     
-    /// 获取字符串的height
+    /**< 获取字符串的height */
     func getHeightFont_k(fontSize: CGFloat, width: CGFloat = CGFloat(MAXFLOAT)) -> CGFloat {
         getSizeFont_k(fontSize: fontSize, width: width).height
     }
 
-    /// 获取字符串的size
+    /**< 获取字符串的size */
     func getSizeFont_k(fontSize: CGFloat, width: CGFloat) -> CGSize {
         let fSize = (fontSize == 0) ? fontSize : UIFont.systemFontSize
         let expectedSize = CGSize(width: width, height: CGFloat(MAXFLOAT))
@@ -137,7 +137,7 @@ extension String {
     }
     
     //MARK: 转换时间戳
-    ///时间戳转换成yyyy-MM-dd
+    /**< 时间戳转换成yyyy-MM-dd */
     func timeForYYYY_MM_DD_k() -> String {
         timeWithFormatter_k(formatter: "yyyy-MM-dd")
     }
@@ -146,7 +146,7 @@ extension String {
         timeWithFormatter_k(formatter: "yyyy-MM-dd HH:mm")
     }
 
-    /// 时间戳转换成年月日
+    /**< 时间戳转换成年月日 */
     func timeWithFormatter_k(formatter: String) -> String {
         let time = (count > 10) ? subStringIndex_k(0, 10): self
         let detaildate = NSDate(timeIntervalSince1970: time.doubleValue)
@@ -157,7 +157,7 @@ extension String {
         return dateFormatter.string(from: detaildate as Date)
     }
 
-    ///年月日格式转换时间戳
+    /**< 年月日格式转换时间戳 */
     func timestampWithFormatter_k(formatter: String) -> Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatter
@@ -165,19 +165,19 @@ extension String {
         return Int(fromDate?.timeIntervalSince1970 ?? 0)
     }
 
-    ///年月日格式转换时间戳
+    /**< 年月日格式转换时间戳 */
     func timestampForYYYY_MM_DD_k() -> Int {
         timestampWithFormatter_k(formatter: "yyyy-MM-dd")
     }
     
-    /** 拼音 */
+    /**< 拼音  */
     func changePinyin_k() -> String {
         let mutableString = NSMutableString(string: self)
         CFStringTransform(mutableString, nil, kCFStringTransformToLatin, false)
         return mutableString.folding(options: .diacriticInsensitive, locale: NSLocale.current).lowercased()
     }
 
-    /** 中文  */
+    /**< 中文   */
     func chinese_k() -> Bool {
         guard self.count > 0 else { return false }
         let match: String = "(^[\\u4e00-\\u9fa5]+$)"
@@ -185,7 +185,7 @@ extension String {
         return predicate.evaluate(with: self)
     }
     
-    /** md5 */
+    /**< md5  */
     func fx_md5() -> String {
         let utf8 = cString(using: .utf8)
         var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))

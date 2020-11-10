@@ -10,7 +10,7 @@ import Foundation
 
 extension Dictionary {
     
-    /// 判断是否可用
+    /**< 判断是否可用 */
     var available: Bool {
         get {
             let tempDictionary = self as? [String: Any]
@@ -18,7 +18,7 @@ extension Dictionary {
         }
     }
     
-    /// 字典转字符串
+    /**< 字典转字符串 */
     var jsonRepresentation: String {
         get {
             do {
@@ -29,7 +29,7 @@ extension Dictionary {
         }
     }
     
-    ///获取
+    /**< 获取 */
     func objectForKey(_ key: String) -> Any {
         let tempDictionary = self as? [String: Any]
         let value = tempDictionary![key] as AnyObject
@@ -39,7 +39,7 @@ extension Dictionary {
         return Void.self
     }
 
-    ///设值
+    /**< 设值 */
     mutating func setValue(_ value: Any, forKey key: String) {
         var tempDictionary = self as? [String: Any]
         tempDictionary![key] = value

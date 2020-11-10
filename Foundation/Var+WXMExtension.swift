@@ -10,7 +10,7 @@ import Foundation
 
 extension Int {
     
-    /** floatValue */
+    /**< floatValue */
     var floatValue: Float {
         get {
             let value = self
@@ -18,7 +18,7 @@ extension Int {
         }
     }
 
-    /** stringValue */
+    /**< stringValue */
     var stringValue: String {
         get {
             let value = self
@@ -29,7 +29,7 @@ extension Int {
 
 extension Int64 {
     
-    /** floatValue */
+    /**< floatValue */
     var floatValue: Float {
         get {
             let value = self
@@ -37,7 +37,7 @@ extension Int64 {
         }
     }
 
-    /** stringValue */
+    /**< stringValue */
     var stringValue: String {
         get {
             let value = self
@@ -48,7 +48,7 @@ extension Int64 {
 
 extension Float {
     
-    /** intValue */
+    /**< intValue */
     var intValue: Int {
         get {
             let value = self
@@ -56,7 +56,7 @@ extension Float {
         }
     }
 
-    /** stringValue */
+    /**< stringValue */
     var stringValue: String {
         get {
             let value = self
@@ -64,7 +64,7 @@ extension Float {
         }
     }
 
-    /** cgFloat */
+    /**< cgFloat */
     var cgFloat: CGFloat {
         get {
             let value = self
@@ -77,7 +77,7 @@ extension Float {
 
 extension CGFloat {
 
-    /** float */
+    /**< float  */
     var float: Float {
         get {
             let value = self
@@ -85,7 +85,7 @@ extension CGFloat {
         }
     }
     
-    /** int */
+    /**< int  */
     var int: Int {
         get {
             let value = self
@@ -93,7 +93,7 @@ extension CGFloat {
         }
     }
 
-    /** int */
+    /**< int */
     var int64: Int64 {
         get {
             let value = self

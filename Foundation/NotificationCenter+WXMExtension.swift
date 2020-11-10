@@ -11,7 +11,7 @@ import Foundation
 var notificationKey :Void?
 extension NotificationCenter {
 
-    /// 监听
+    /**< 监听 */
     public func addObserver_k(
         observer: UIViewController,
         name: String,
@@ -31,7 +31,7 @@ extension NotificationCenter {
         dictionary[name] = object
         objc_setAssociatedObject(observer, &notificationKey, dictionary, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
-    
+
 }
 
 func wk_addNotificationClosure (
@@ -39,13 +39,7 @@ func wk_addNotificationClosure (
     name: String,
     object: Any? = nil,
     usingBlock: @escaping (Notification) -> Void) {
-
-    NotificationCenter.default.addObserver_k(
-        observer: observer,
-        name: name,
-        object: object,
-        usingBlock: usingBlock
-    )
+    NotificationCenter.default.addObserver_k(observer: observer, name: name, object: object, usingBlock: usingBlock)
 }
 
 func wk_addNotificationSEL(
@@ -53,13 +47,7 @@ func wk_addNotificationSEL(
     selector: Selector,
     name: String,
     object: Any? = nil) {
-
-    NotificationCenter.default.addObserver(
-        observer,
-        selector: selector,
-        name: NSNotification.Name(rawValue: name),
-        object: object
-    )
+    NotificationCenter.default.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: name), object: object)
 }
 
 func wk_postNotification(_ name: String, object: Any? = nil) {

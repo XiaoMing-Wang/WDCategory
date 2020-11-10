@@ -10,7 +10,7 @@ import Foundation
 
 extension UIScrollView {
 
-    /// contentOffsetX
+    /**< contentOffsetX */
     var contentOffsetX: CGFloat {
         get {
             return contentOffset.x
@@ -21,7 +21,7 @@ extension UIScrollView {
         }
     }
     
-    /// contentOffsetY
+    /**< contentOffsetY */
     var contentOffsetY: CGFloat {
         get {
             return contentOffset.y
@@ -32,7 +32,7 @@ extension UIScrollView {
         }
     }
 
-    /// contentSizeWidth
+    /**< contentSizeWidth */
     var contentSizeWidth: CGFloat {
         get {
             return contentSize.width
@@ -43,7 +43,7 @@ extension UIScrollView {
         }
     }
 
-    /// contentSizeHeight
+    /**< contentSizeHeight */
     var contentSizeHeight: CGFloat {
         get {
             return contentSize.height
@@ -54,7 +54,7 @@ extension UIScrollView {
         }
     }
 
-    /// contentInsetTop
+    /**< contentInsetTop */
     var contentInsetTop: CGFloat {
         get {
             return contentInset.top
@@ -71,7 +71,7 @@ extension UIScrollView {
     }
 
 
-    /// contentInsetLeft
+    /**< contentInsetLeft */
     var contentInsetLeft: CGFloat {
         get {
             return contentInset.left
@@ -88,7 +88,7 @@ extension UIScrollView {
     }
 
 
-    /// contentInsetBottom
+    /**< contentInsetBottom */
     var contentInsetBottom: CGFloat {
         get {
             return contentInset.bottom
@@ -105,7 +105,7 @@ extension UIScrollView {
     }
 
 
-    /// contentInsetRight
+    /**< contentInsetRight */
     var contentInsetRight: CGFloat {
         get {
             return contentInset.right
@@ -121,12 +121,12 @@ extension UIScrollView {
         }
     }
 
-    /// 滚动到顶部
+    /**< 滚动到顶部 */
     func srollsToTop_k(animated: Bool = true) {
         setContentOffset(.zero, animated: animated)
     }
 
-    /// 滚动到尾部
+    /**< 滚动到尾部 */
     func srollsToBottom_k(animated: Bool = true) {
         if self.contentSize.height > self.frame.size.height {
             let offsetY = self.contentSize.height - self.frame.size.height + self.contentInset.bottom
@@ -134,7 +134,7 @@ extension UIScrollView {
         }
     }
 
-    /// 滚动优先级低于返回
+    /**< 滚动优先级低于返回 */
     func rollingPriorityLow_k(controller: UIViewController) {
         if isScrollEnabled == false { return }
         let gesture: UIGestureRecognizer? = controller.navigationController?.interactivePopGestureRecognizer
@@ -143,7 +143,7 @@ extension UIScrollView {
         panGesture!.require(toFail: gesture!)
     }
 
-    /// 滚动优先级低于返回
+    /**< 滚动优先级低于返回 */
     func rollingPriorityHight_k(controller: UIViewController) {
         if isScrollEnabled == false { return }
         let gesture: UIGestureRecognizer? = controller.navigationController?.interactivePopGestureRecognizer
@@ -152,7 +152,7 @@ extension UIScrollView {
         gesture!.require(toFail: panGesture!)
     }
     
-    /** 顶部留白 */
+    /**< 顶部留白  */
     func insertTopClearance(color: UIColor = .white) {
         let toplearance = UIView()
         toplearance.backgroundColor = color

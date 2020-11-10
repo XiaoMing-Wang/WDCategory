@@ -12,13 +12,13 @@ private var onceTap :Void?
 private var doubleTap :Void?
 extension UIView {
     
-    /** 在window中的位置 */
+    /**< 在window中的位置  */
     func locationWithWindow_k() -> CGRect {
         guard let window = UIApplication.shared.delegate?.window else { return .zero }
         return self.convert(self.bounds, to: window)
     }
 
-    /** 单击Selector */
+    /**< 单击Selector  */
     func tappedWithTarget_k(target: Any, selector: Selector) {
         let gesture = UITapGestureRecognizer(target: target, action: selector)
         gesture.delegate = self as? UIGestureRecognizerDelegate
@@ -29,7 +29,7 @@ extension UIView {
         addGestureRecognizer(gesture)
     }
 
-    /** 截图  */
+    /**< 截图 */
     func makeImage_k() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, UIScreen.main.scale)
         layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -38,7 +38,7 @@ extension UIView {
         return image
     }
 
-    /** 单击block */
+    /**< 单击block  */
     @discardableResult
     func addOnceTappedWithCallback_k(callback: @escaping () -> ()) -> UITapGestureRecognizer {
         let gesture = addTapGesture(taps: 1, touches: 1, selector: #selector(tappedEvent(gesture:)))
@@ -46,7 +46,7 @@ extension UIView {
         return gesture
     }
 
-    /** 双击block */
+    /**< 双击block  */
     @discardableResult
     func addDoubleTappedWithCallback_k(callback: @escaping () -> ()) -> UITapGestureRecognizer {
         let gesture = addTapGesture(taps: 2, touches: 1, selector: #selector(tappedEvent(gesture:)))
@@ -54,7 +54,7 @@ extension UIView {
         return gesture
     }
 
-    ///上下居中
+    /**< 上下居中 */
     func venicalSet_k(above: UIView?, nether: UIView?, interval: CGFloat) {
         if (above == nil || nether == nil || self.frame.size.height == 0) { return }
 
@@ -71,7 +71,7 @@ extension UIView {
         nether!.frame = rectNether;
     }
     
-    ///左右居中
+    /**< 左右居中 */
     func horizontalSet_k(above: UIView?, nether: UIView?, interval: CGFloat) {
         if (above == nil || nether == nil || self.frame.size.height == 0) { return }
 
@@ -88,7 +88,7 @@ extension UIView {
         nether!.frame = rectNether;
     }
 
-    ///渐现动画
+    /**< 渐现动画 */
     func fadeAnimation_k(duration: CGFloat = 0.5) {
         let transition = CATransition()
         transition.duration = CFTimeInterval(duration)
@@ -97,23 +97,28 @@ extension UIView {
         self.layer.add(transition, forKey: "fadeAnimation")
     }
     
-    ///翻页
+    /**< 翻页 */
     func pageCurlAnimation_k(duration: CGFloat = 0.5) {
         let transition = CATransition()
         transition.duration = CFTimeInterval(duration)
         transition.type = CATransitionType(rawValue: "pageCurl")
+        /**< transition.type = CATransitionType(rawValue: "pageUnCurl") */
+        /**< transition.type = CATransitionType(rawValue: "oglFlip") */
         transition.subtype = .fromLeft
         self.layer.add(transition, forKey: "pageCurl")
     }
     
-    /** 消失动画 */
+    /**< 消失动画  */
     func disappearAnimation_k(duration: CGFloat = 0.5) {
         UIView.animate(withDuration: TimeInterval(duration), animations: {
             self.alpha = 0
-        }) { $0 ? self.removeFromSuperview() : nil }
+        }) {
+            self.alpha = 1
+            $0 ? self.removeFromSuperview() : nil
+        }
     }
   
-    /** 点击事件 */
+    /**< 点击事件  */
     @objc fileprivate func tappedEvent(gesture: UITapGestureRecognizer) {
         var callback: (() -> ())? = nil
         if gesture.numberOfTapsRequired == 1 {
@@ -127,7 +132,7 @@ extension UIView {
         if callback != nil { callback!() }
     }
 
-    /** 实例化手势 */
+    /**< 实例化手势  */
     fileprivate func addTapGesture(taps: Int, touches: Int, selector: Selector) -> UITapGestureRecognizer {
         let gesture = UITapGestureRecognizer(target: self, action: selector)
         gesture.delegate = self as? UIGestureRecognizerDelegate
@@ -139,13 +144,13 @@ extension UIView {
         return gesture
     }
 
-    /** snp */
+    /**< snp  */
     func aSup(_ supview: UIView) -> Self {
         supview.addSubview(self)
         return self
     }
 
-    /** xib */
+    /**< xib  */
     class func xib() -> UIView? {
         guard let className = String(NSStringFromClass(self)).components(separatedBy: ".").last else {
             return nil
@@ -154,7 +159,7 @@ extension UIView {
         return nib.instantiate(withOwner: nil, options: nil).first as? UIView
     }
 
-    /** 任意角画圆 */
+    /**< 任意角画圆  */
     func drawSemicircleRectCorner(rectCorner: UIRectCorner, cornerRadius: CGFloat) {
         let size = CGSize(width: cornerRadius, height: cornerRadius)
         let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: rectCorner, cornerRadii: size)
@@ -164,7 +169,7 @@ extension UIView {
         layer.mask = maskLayer
     }
 
-    /** 圆角边框 */
+    /**< 圆角边框  */
     func drawSemicircleRectCorner(cornerRadius: CGFloat, lineColor: UIColor) {
         let size = CGSize(width: cornerRadius, height: cornerRadius)
         let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: .allCorners, cornerRadii: size)

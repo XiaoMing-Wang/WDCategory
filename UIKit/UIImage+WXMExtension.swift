@@ -11,7 +11,7 @@ import Accelerate
 
 extension UIImage {
     
-    /// 颜色画图片
+    /**< 颜色画图片 */
     class func imageFromColor_k(color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
@@ -25,7 +25,7 @@ extension UIImage {
         return image
     }
 
-    /// 裁剪图片的一部分
+    /**< 裁剪图片的一部分 */
     func tailorImageRect(rect: CGRect) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         guard let sourceImageRef = self.cgImage else { return nil }
@@ -33,12 +33,12 @@ extension UIImage {
         return UIImage(cgImage: newCGImage)
     }
 
-    /// 拉伸
+    /**< 拉伸 */
     func imageStretching_k() -> UIImage {
         return self.resizableImage(withCapInsets: .zero, resizingMode: .stretch)
     }
 
-    /** 获取重回比例 */
+    /**< 获取重绘制比例  */
     class func scaleImage_k(image: UIImage, imageLength: CGFloat = 1280) -> UIImage? {
         let width = image.size.width
         let height = image.size.height
@@ -57,19 +57,19 @@ extension UIImage {
                 newHeight = imageLength;
             }
         }
-        return resizeImage_k(image: image, newSize: CGSize(width: newWidth, height: newHeight))
+        return resizeImage_k(image, newSize: CGSize(width: newWidth, height: newHeight))
     }
 
-    /** 获得指定size的图片 */
-    class func resizeImage_k(image: UIImage, newSize: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContext(newSize)
+    /**< 获得指定size的图片  */
+    class func resizeImage_k(_ image: UIImage, newSize: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
         image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
     }
 
-    /** 获取启动图 */
+    /**< 获取启动图  */
     func getLaunchImage_k() -> UIImage? {
         let viewOrientation = "Portrait"
         var launchImageName: String?
@@ -86,7 +86,7 @@ extension UIImage {
         return UIImage(named: launchImageName ?? "")
     }
     
-    /** 绘制遮罩图片 */
+    /**< 绘制遮罩图片  */
     class func drawRounded_k(_ radius: CGFloat, rectSize: CGSize, fillColor: UIColor) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(rectSize, false, UIScreen.main.scale)
         let currentContext = UIGraphicsGetCurrentContext()

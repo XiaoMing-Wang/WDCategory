@@ -11,11 +11,11 @@ import Foundation
 
 let kIPhoneX = kJudgeIPhoneX()
 
-/** 屏幕frame */
+/**< 屏幕frame  */
 let kSRect = UIScreen.main.bounds
 let kEdgeRect = CGRect(x: 0, y: kBarHeight, width: kSWidth, height: (kSHeight - kBarHeight))
 
-/** 导航栏高度 安全高度 */
+/**< 导航栏高度 安全高度  */
 let kBarRemainHeight: CGFloat = 44.0
 let kBarHeight: CGFloat = (kBarRemainHeight + kStatusBarHeight())
 let kSafeHeight: CGFloat = kSafeBottom()
@@ -87,17 +87,17 @@ func kSafeBottom() -> CGFloat {
     }
 }
 
-///  颜色
+/**< 颜色 */
 func kRGB(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) -> UIColor {
     return kRGBA(red, green, blue, 1);
 }
 
-///  颜色
+/**< 颜色 */
 func kRGBA(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat, _ alpha: CGFloat) -> UIColor {
     return UIColor.init(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha);
 }
 
-/// 16进制颜色
+/**< 16进制颜色 */
 func kColorFromRGB(_ color_vaule: UInt64) -> UIColor {
     let redValue = CGFloat((color_vaule & 0xFF0000) >> 16) / 255.0
     let greenValue = CGFloat((color_vaule & 0xFF00) >> 8) / 255.0
@@ -105,7 +105,7 @@ func kColorFromRGB(_ color_vaule: UInt64) -> UIColor {
     return UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1)
 }
 
-/// 随机颜色
+/**< 随机颜色 */
 func kRandomColor() -> UIColor {
     let redValue = CGFloat(arc4random()) / CGFloat(RAND_MAX)
     let greenValue = CGFloat(arc4random()) / CGFloat(RAND_MAX)
@@ -147,22 +147,22 @@ typealias kBoolClosureDefineID = (_ obj: Any) -> Bool
 typealias kIntClosureDefineSID = (_ obj: Any) -> Int
 typealias kAnyClosureDefineSID = (_ obj: Any) -> Any
 
-/** GCD */
+/**< GCD  */
 func wk_dispatch_async_on_main_queue(callback: @escaping () -> Void) {
     DispatchQueue.main.async(execute: callback)
 }
 
-/** 异步 */
+/**< 异步  */
 func wk_dispatch_async_on_global_queue(callback: @escaping () -> Void) {
     DispatchQueue.global().async(execute: callback)
 }
 
-/** 主线程 */
+/**< 主线程  */
 func wk_dispatch_after_main_queue(delay: Double, callback: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: callback)
 }
 
-/** 接收通知 */
+/**< 接收通知  */
 var keyboardShow: String = UIResponder.keyboardWillShowNotification.rawValue
 var keyboardHide: String = UIResponder.keyboardWillHideNotification.rawValue
 func wk_addNotificationObserver(observer: Any, sel: Selector, name: String) {
@@ -174,12 +174,12 @@ func wk_addNotificationObserver(observer: Any, sel: Selector, name: String) {
     )
 }
 
-/** 区间 */
+/**< 区间  */
 func kMin_Max(aMin: CGFloat, Pa: CGFloat, aMax: CGFloat) -> CGFloat {
     return max(aMin, min(Pa, aMax))
 }
 
-/** kSafari打开 */
+/**< kSafari打开  */
 func kSafariOpen(string: String) {
     guard let url = URL(string: string) else { return }
     if #available(iOS 10, *) {
@@ -189,30 +189,30 @@ func kSafariOpen(string: String) {
     }
 }
 
-/// 调到设置界面
+/**< 调到设置界面 */
 func kOpenSetting() {
     kSafariOpen(string: UIApplication.openSettingsURLString)
 }
 
-/// 复制
+/**< 复制 */
 func kCopyString(_ astring: String) {
     UIPasteboard.general.string = astring
 }
 
-///  打印
+/**< 打印 */
 func kLogPrint<T>(_ message: T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
     #if DEBUG
     
-    // 1.获取文件名,包含后缀名
+    /**< 1.获取文件名,包含后缀名  */
     let name = (file as NSString).lastPathComponent
     
-    // 1.1 切割文件名和后缀名
+    /**< 1.1 切割文件名和后缀名 */
     let fileArray = name.components(separatedBy: ".")
     
-    // 1.2 获取文件名
+    /**< 1.2 获取文件名 */
     let fileName = fileArray[0]
     
-    // 2.打印内容
+    /**< 2.打印内容 */
     print("\(fileName) \(funcName) \(lineNum)行 ------>:\(message)")
     
     #endif

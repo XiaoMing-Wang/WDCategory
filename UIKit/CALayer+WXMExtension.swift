@@ -10,7 +10,7 @@ import Foundation
 
 extension CALayer {
 
-    /// 起点 x
+    /**< 起点 x */
     var x: CGFloat {
         get {
             return frame.origin.x
@@ -21,7 +21,7 @@ extension CALayer {
         }
     }
 
-    /// 起点 y
+    /**< 起点 y */
     var y: CGFloat {
         get {
             return frame.origin.y
@@ -32,7 +32,7 @@ extension CALayer {
         }
     }
     
-    /// 宽
+    /**< 宽 */
     var width: CGFloat {
         get {
             return frame.size.width
@@ -43,7 +43,7 @@ extension CALayer {
         }
     }
 
-    /// 高
+    /**< 高 */
     var height: CGFloat {
         get {
             return frame.size.height
@@ -54,7 +54,7 @@ extension CALayer {
         }
     }
 
-    /// 起点 left
+    /**< 起点 left */
     var left: CGFloat {
         get {
             return frame.origin.x
@@ -65,7 +65,7 @@ extension CALayer {
         }
     }
     
-    /// 起点 top
+    /**< 起点 top */
     var top: CGFloat {
         get {
             return frame.origin.y
@@ -76,7 +76,7 @@ extension CALayer {
         }
     }
     
-    /// 右
+    /**< 右 */
     var right: CGFloat {
         get {
             return x + width
@@ -87,7 +87,7 @@ extension CALayer {
         }
     }
     
-    /// 下
+    /**< 下 */
     var bottom: CGFloat {
         get {
             return y + height
@@ -98,7 +98,7 @@ extension CALayer {
         }
     }
     
-    /// 中心 x
+    /**< 中心 x */
     var centerX: CGFloat {
         get {
             return position.x
@@ -109,7 +109,7 @@ extension CALayer {
         }
     }
 
-    /// 中心 y
+    /**< 中心 y */
     var centerY: CGFloat {
         get {
             return position.y
@@ -120,7 +120,7 @@ extension CALayer {
         }
     }
 
-    /// origin
+    /**< origin */
     var origin: CGPoint {
         get {
             return frame.origin
@@ -131,7 +131,7 @@ extension CALayer {
         }
     }
     
-    /// size
+    /**< size */
     var size: CGSize {
         get {
             return frame.size
@@ -155,7 +155,7 @@ extension CALayer {
         centerY = referenceView.centerY
     }
         
-    /// 右边
+    /**< 右边 */
     func layoutReferenceRight(_ referenceView : UIView, _ offset : CGFloat) {
         let totalWidth = referenceView.left - left
         if (width == 0) {
@@ -165,7 +165,7 @@ extension CALayer {
         }
     }
 
-    /// 下边
+    /**< 下边 */
     func layoutReferenceBottom(_ referenceView: UIView, _ offset: CGFloat) {
         let totalHeight = referenceView.top - top
         if (height == 0) {

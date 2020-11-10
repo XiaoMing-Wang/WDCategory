@@ -11,13 +11,13 @@ import Foundation
 /** 响应链传递 消息会沿着响应链像父视图传递包括controller 某一层实现了该方法就可以拦截到该消息 不要多次拦截 */
 extension UIResponder {
 
-    /** 参数是字符串 */
+    /**< 参数是字符串  */
     @objc func routerEvent(_ event: String, object aObject: Any? = nil) {
         next?.routerEvent(event, object: aObject)
         next?.routerEventAny(event, object: aObject)
     }
 
-    /** 参数是枚举 */
+    /**< 参数是枚举  */
     @objc func routerEventAny(_ event: Any, object aObject: Any? = nil) {
         next?.routerEventAny(event, object: aObject)
     }

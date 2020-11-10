@@ -13,7 +13,7 @@ import ContactsUI
 
 class AuthorityAssistant: NSObject {
 
-    /** 相册权限 */
+    /**< 相册权限  */
     class func photoAuthority(call: @escaping (Bool) -> Void) {
 
         let photoStatus = PHPhotoLibrary.authorizationStatus()
@@ -38,7 +38,7 @@ class AuthorityAssistant: NSObject {
     }
 
 
-    /** 相机权限 */
+    /**< 相机权限  */
     class func cameraAuthority(call: @escaping (Bool) -> Void) {
 
         let media: AVMediaType = .video
@@ -64,7 +64,7 @@ class AuthorityAssistant: NSObject {
         }
     }
     
-    /** 麦克风权限 */
+    /**< 麦克风权限  */
     class func audioAuthority(authorizedCall: Bool = true, call: @escaping (Bool) -> Void) {
 
         let media: AVMediaType = .audio
@@ -90,7 +90,7 @@ class AuthorityAssistant: NSObject {
         }
     }
     
-    /** 位置权限 */
+    /**< 位置权限  */
     class func locationAuthority() -> Bool {
 
         let status: CLAuthorizationStatus = CLLocationManager.authorizationStatus()
@@ -107,7 +107,7 @@ class AuthorityAssistant: NSObject {
         return false
     }
     
-    /** 通讯录权限 */
+    /**< 通讯录权限  */
     class func contactAuthority(call: @escaping (Bool) -> Void) {
         let status = CNContactStore.authorizationStatus(for: .contacts)
         if status == .authorized {
@@ -161,8 +161,7 @@ class AuthorityAssistant: NSObject {
         }
         rootVC?.present(alert, animated: true, completion: nil)
     }
-    
-    
+
     class fileprivate func kOpenSetting() {
         let url: URL? = URL(string: UIApplication.openSettingsURLString)
         if url == nil { return }

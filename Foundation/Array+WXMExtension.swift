@@ -10,7 +10,7 @@ import Foundation
 
 extension Array {
 
-    /// 判断是否可用
+    /**< 判断是否可用 */
     var available: Bool {
         get {
             let tempArray = self as? [AnyClass]
@@ -18,7 +18,7 @@ extension Array {
         }
     }
 
-    /** 获取索引对象 */
+    /**< 获取索引对象  */
     public func objectIdxSafe_k(index: Int) -> Element? {
         if (index >= 0 && index < count) {
             return self[index]
@@ -36,7 +36,7 @@ extension Array {
 
 extension Array where Element: Comparable {
     
-    /** 获取对象索引 */
+    /**< 获取对象索引  */
     public func objectToIndex_k(object: Element) -> Int {
         let array: [Element] = self
         for (index, value) in array.enumerated() {
@@ -45,7 +45,7 @@ extension Array where Element: Comparable {
         return -1
     }
     
-    /** 删除对象 */
+    /**< 删除对象  */
     public mutating func removeObj_k(object: Element) {
         let index = objectToIndex_k(object: object)
         if count > index {

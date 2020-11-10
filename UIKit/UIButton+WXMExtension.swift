@@ -45,16 +45,18 @@ extension UIButton {
         }
     }
     
+    /**< 添加手势 */
     func addTarget_k(target: Any, action: Selector) {
         self.addTarget(target, action: action, for: .touchUpInside)
     }
 
+    /**< 点击闭包 */
     func closureTouchUpInside_k(closure: @escaping () -> Void) {
         self.addTarget(self, action: #selector(callActionClosure(sender:)), for: .touchUpInside)
         objc_setAssociatedObject(self, &touchKey, closure, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 
-    /// 扩大点击范围
+    /**< 扩大点击范围 */
     func setEnlargeEdgeTop_k(top: CGFloat, bottom: CGFloat, left: CGFloat, right: CGFloat) {
         objc_setAssociatedObject(self, &topKey, top, .OBJC_ASSOCIATION_COPY_NONATOMIC);
         objc_setAssociatedObject(self, &bottomKey, bottom, .OBJC_ASSOCIATION_COPY_NONATOMIC);
@@ -62,6 +64,7 @@ extension UIButton {
         objc_setAssociatedObject(self, &rightKey, right, .OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
 
+    /**< 显示菊花 */
     func showIndicator_k() {
         let indicator = UIActivityIndicatorView(style: .white)
         indicator.center = CGPoint(x: bounds.size.width / 2, y: bounds.size.height / 2)
@@ -76,6 +79,7 @@ extension UIButton {
         addSubview(indicator)
     }
 
+    /**< 隐藏菊花 */
     func hideIndicator_k() {
         isUserInteractionEnabled = true
         let indicator = objc_getAssociatedObject(self, &indicatorKey) as? UIActivityIndicatorView
@@ -84,7 +88,7 @@ extension UIButton {
         setTitle(currentText, for: .normal)
     }
 
-    /// 设置图片字体上下对齐
+    /**< 设置图片字体上下对齐 */
     func alineTextAlignment_k(space: CGFloat) {
         let imageSize = self.imageView?.frame.size
         var titleSize = self.titleLabel?.frame.size

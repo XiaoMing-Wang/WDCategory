@@ -11,6 +11,7 @@ import Foundation
 private var timerKey :Void?
 extension NSObject {
     
+    /**< 定时器 */
     @discardableResult
     func startTimingInterval_k(_ interval: Double, countdown: @escaping () -> Bool) -> DispatchSourceTimer {
         let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
@@ -27,6 +28,7 @@ extension NSObject {
         return timer
     }
 
+    /**< 定时器 */
     @discardableResult
     func startTimingInterval_k(_ interval: Double, target: AnyObject, action: Selector) -> DispatchSourceTimer {
         let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
@@ -41,6 +43,7 @@ extension NSObject {
         return timer
     }
 
+    /**< 停止定时器 */
     func stopTiming_k() {
         let timer = objc_getAssociatedObject(self, &timerKey) as? DispatchSourceTimer
         timer?.cancel()
