@@ -122,30 +122,30 @@ func kHideKeyboard() {
 }
 
 /** 闭包 */
-typealias kVoidClosureDefine = () -> Void
-typealias kBoolClosureDefine = () -> Bool
-typealias kIntClosureDefine = () -> Int
-typealias kAnyClosureDefine = () -> Any
+typealias kClosureVoid = () -> ()
+typealias kClosureBool = () -> Bool
+typealias kClosureInt = () -> Int
+typealias kClosureAny = () -> Any
 
-typealias kVoidClosureDefineBool = (Bool) -> Void
-typealias kBoolClosureDefineBool = (Bool) -> Bool
-typealias kIntClosureDefineBool = (Bool) -> Int
-typealias kAnyClosureDefineBool = (Bool) -> Any
+typealias kBoolClosureVoid = (Bool) -> Void
+typealias kBoolClosureBool = (Bool) -> Bool
+typealias kBoolClosureInt = (Bool) -> Int
+typealias kBoolClosureAny = (Bool) -> Any
 
-typealias kVoidClosureDefineInt = (_ index: Int) -> Void
-typealias kBoolClosureDefineInt = (_ index: Int) -> Bool
-typealias kIntClosureDefineInt = (_ index: Int) -> Int
-typealias kAnyClosureDefineInt = (_ index: Int) -> Any
+typealias kIntClosureVoid = (Int) -> Void
+typealias kIntClosureBool = (Int) -> Bool
+typealias kIntClosureInt = (Int) -> Int
+typealias kIntClosureAny = (Int) -> Any
 
-typealias kVoidClosureDefineString = (_ aString: String) -> Void
-typealias kBoolClosureDefineString = (_ aString: String) -> Bool
-typealias kIntClosureDefineString = (_ aString: String) -> Int
-typealias kAnyClosureDefineString = (_ aString: String) -> Any
+typealias kStringClosureVoid = (String) -> Void
+typealias kStringClosureBool = (String) -> Bool
+typealias kStringClosureInt = (String) -> Int
+typealias kStringClosureAny = (String) -> Any
 
-typealias kVoidClosureDefineID = (_ obj: Any) -> Void
-typealias kBoolClosureDefineID = (_ obj: Any) -> Bool
-typealias kIntClosureDefineSID = (_ obj: Any) -> Int
-typealias kAnyClosureDefineSID = (_ obj: Any) -> Any
+typealias kAnyClosureVoid = (Any) -> Void
+typealias kAnyClosureBool = (Any) -> Bool
+typealias kAnyClosureInt = (Any) -> Int
+typealias kAnyClosureAny = (Any) -> Any
 
 /**< GCD  */
 func wk_dispatch_async_on_main_queue(callback: @escaping () -> Void) {
