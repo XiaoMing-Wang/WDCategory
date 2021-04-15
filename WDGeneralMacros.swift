@@ -15,6 +15,7 @@ let kIPhoneX = kJudgeIPhoneX()
 let kSRect = UIScreen.main.bounds
 let kEdgeRect = CGRect(x: 0, y: kBarHeight, width: kSWidth, height: (kSHeight - kBarHeight))
 
+
 /**< 导航栏高度 安全高度  */
 let kBarRemainHeight: CGFloat = 44.0
 let kBarHeight: CGFloat = (kBarRemainHeight + kStatusBarHeight())
