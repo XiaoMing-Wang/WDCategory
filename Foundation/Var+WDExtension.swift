@@ -17,6 +17,14 @@ extension Int {
             return Float(value)
         }
     }
+    
+    /**< cgFloat */
+    var cgFloat: CGFloat {
+        get {
+            let value = self
+            return CGFloat(value)
+        }
+    }
 
     /**< stringValue */
     var stringValue: String {
@@ -34,6 +42,14 @@ extension Int64 {
         get {
             let value = self
             return Float(value)
+        }
+    }
+    
+    /**< cgFloat */
+    var cgFloat: CGFloat {
+        get {
+            let value = self
+            return CGFloat(value)
         }
     }
 
@@ -73,7 +89,6 @@ extension Float {
     }
     
 }
-
 
 extension CGFloat {
 

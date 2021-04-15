@@ -14,7 +14,7 @@ extension NSObject {
     /**< 定时器 */
     @discardableResult
     func startTimingInterval_k(_ interval: Double, countdown: @escaping () -> Bool) -> DispatchSourceTimer {
-        let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
+        let timer = DispatchSource.makeTimerSource(queue: .global())
         timer.schedule(deadline: .now(), repeating: interval)
         timer.setEventHandler {
             DispatchQueue.main.async {
@@ -31,7 +31,7 @@ extension NSObject {
     /**< 定时器 */
     @discardableResult
     func startTimingInterval_k(_ interval: Double, target: AnyObject, action: Selector) -> DispatchSourceTimer {
-        let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
+        let timer = DispatchSource.makeTimerSource(queue: .global())
         timer.schedule(deadline: .now(), repeating: interval)
         timer.setEventHandler { [weak target] in
             DispatchQueue.main.async {
@@ -48,7 +48,6 @@ extension NSObject {
         let timer = objc_getAssociatedObject(self, &timerKey) as? DispatchSourceTimer
         timer?.cancel()
     }
-
 
 }
 

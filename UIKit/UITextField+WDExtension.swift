@@ -68,7 +68,6 @@ extension UITextField: UITextFieldDelegate {
 
     //MARK: delegateKit
     var delegateKit: WXMKitTextFieldDelegate? {
-
         get {
             let delegateKit = objc_getAssociatedObject(self, &AssociateKeys.delegateKit)
             return delegateKit as? WXMKitTextFieldDelegate ?? nil

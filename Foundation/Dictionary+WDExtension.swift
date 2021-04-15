@@ -22,28 +22,13 @@ extension Dictionary {
     var jsonRepresentation: String {
         get {
             do {
+                
                 let data = try JSONSerialization.data(withJSONObject: self, options: [])
-                return String(data: data, encoding: String.Encoding.utf8) ?? ""
+                return String(data: data, encoding: .utf8) ?? ""
+                
             } catch { }
             return ""
         }
-    }
-    
-    /**< 获取 */
-    func objectForKey(_ key: String) -> Any {
-        let tempDictionary = self as? [String: Any]
-        let value = tempDictionary![key] as AnyObject
-        if value is String {
-            return value
-        }
-        return Void.self
-    }
-
-    /**< 设值 */
-    mutating func setValue(_ value: Any, forKey key: String) {
-        var tempDictionary = self as? [String: Any]
-        tempDictionary![key] = value
-        self = tempDictionary as! Dictionary<Key, Value>
     }
     
 }

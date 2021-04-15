@@ -20,7 +20,7 @@ extension String {
         }
     }
 
-    var availableString: String? {
+    var availableValue: String? {
         get {
             let tempString: String? = (count > 0) ? self : nil
             return tempString

@@ -12,54 +12,31 @@ extension UIScrollView {
 
     /**< contentOffsetX */
     var contentOffsetX: CGFloat {
-        get {
-            return contentOffset.x
-        }
-
-        set {
-            contentOffset = CGPoint(x: newValue, y: contentOffsetY)
-        }
+        get { return contentOffset.x }
+        set { contentOffset = CGPoint(x: newValue, y: contentOffsetY) }
     }
     
     /**< contentOffsetY */
     var contentOffsetY: CGFloat {
-        get {
-            return contentOffset.y
-        }
-
-        set {
-            contentOffset = CGPoint(x: contentOffsetX, y: newValue)
-        }
+        get { return contentOffset.y }
+        set { contentOffset = CGPoint(x: contentOffsetX, y: newValue) }
     }
 
     /**< contentSizeWidth */
     var contentSizeWidth: CGFloat {
-        get {
-            return contentSize.width
-        }
-
-        set {
-            contentSize = CGSize(width: newValue, height: contentSizeHeight)
-        }
+        get { return contentSize.width }
+        set { contentSize = CGSize(width: newValue, height: contentSizeHeight) }
     }
 
     /**< contentSizeHeight */
     var contentSizeHeight: CGFloat {
-        get {
-            return contentSize.height
-        }
-        
-        set {
-            contentSize = CGSize(width: contentSizeWidth, height: newValue)
-        }
+        get { return contentSize.height }
+        set { contentSize = CGSize(width: contentSizeWidth, height: newValue) }
     }
 
     /**< contentInsetTop */
     var contentInsetTop: CGFloat {
-        get {
-            return contentInset.top
-        }
-
+        get { return contentInset.top  }
         set {
             contentInset = UIEdgeInsets(
                 top: newValue,
@@ -73,10 +50,7 @@ extension UIScrollView {
 
     /**< contentInsetLeft */
     var contentInsetLeft: CGFloat {
-        get {
-            return contentInset.left
-        }
-
+        get { return contentInset.left }
         set {
             contentInset = UIEdgeInsets(
                 top: contentInsetTop,
@@ -90,10 +64,7 @@ extension UIScrollView {
 
     /**< contentInsetBottom */
     var contentInsetBottom: CGFloat {
-        get {
-            return contentInset.bottom
-        }
-
+        get { return contentInset.bottom }
         set {
             contentInset = UIEdgeInsets(
                 top: contentInsetTop,
@@ -107,9 +78,7 @@ extension UIScrollView {
 
     /**< contentInsetRight */
     var contentInsetRight: CGFloat {
-        get {
-            return contentInset.right
-        }
+        get { return contentInset.right }
 
         set {
             contentInset = UIEdgeInsets(

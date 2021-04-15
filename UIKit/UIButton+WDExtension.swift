@@ -18,40 +18,83 @@ fileprivate var indicatorKey: Void?
 
 extension UIButton {
 
-    var imageNormal: UIImage? {
-        get {
-            return image(for: .normal)
-        }
-        set {
-            setImage(newValue, for: .normal)
-        }
+    ///normal
+    var normalImage: UIImage? {
+        set { setImage(newValue, for: .normal) }
+        get { return image(for: .normal) }
+    }
+    
+    var normalBackgroundImage: UIImage? {
+        set { setBackgroundImage(newValue, for: .normal) }
+        get { return backgroundImage(for: .normal) }
+    }
+    
+    var normalTitle: String? {
+        get { return title(for: .normal) }
+        set { setTitle(newValue, for: .normal) }
+    }
+    
+    var normalTitleColor: UIColor? {
+        get { return titleColor(for: .normal) }
+        set { setTitleColor(newValue, for: .normal) }
+    }
+    
+
+    ///selected
+    var selectedImage: UIImage? {
+        set { setImage(newValue, for: .selected) }
+        get { return image(for: .selected) }
+    }
+    
+    var selectedBackgroundImage: UIImage? {
+        set { setBackgroundImage(newValue, for: .selected) }
+        get { return backgroundImage(for: .selected) }
+    }
+    
+    var selectedTitle: String? {
+        get { return title(for: .selected) }
+        set { setTitle(newValue, for: .selected) }
+    }
+    
+    var selectedTitleColor: UIColor? {
+        get { return titleColor(for: .selected) }
+        set { setTitleColor(newValue, for: .selected) }
     }
 
-    var titleNormal: String? {
-        get {
-            return title(for: .normal)
-        }
-        set {
-            setTitle(newValue, for: .normal)
-        }
+    ///disabled
+    var disabledImage: UIImage? {
+        set { setImage(newValue, for: .disabled) }
+        get { return image(for: .disabled) }
+    }
+    
+    var disabledBackgroundImage: UIImage? {
+        set { setBackgroundImage(newValue, for: .disabled) }
+        get { return backgroundImage(for: .disabled) }
+    }
+           
+    var disabledTitle: String? {
+        get { return title(for: .disabled) }
+        set { setTitle(newValue, for: .disabled) }
     }
 
-    var titleColorNormal: UIColor? {
-        get {
-            return titleColor(for: .normal)
-        }
-        set {
-            setTitleColor(newValue, for: .normal)
-        }
+    var disabledTitleColor: UIColor? {
+        get { return titleColor(for: .disabled) }
+        set { setTitleColor(newValue, for: .disabled) }
+    }
+
+    /**< 标题大小 */
+    var titleFont: UIFont? {
+        get { return titleLabel?.font }
+        set { titleLabel?.font = newValue }
     }
     
     /**< 添加手势 */
-    func addTarget_k(target: Any, action: Selector) {
+    func setTarget_k(target: Any, action: Selector) {
         self.addTarget(target, action: action, for: .touchUpInside)
     }
 
     /**< 点击闭包 */
-    func closureTouchUpInside_k(closure: @escaping () -> Void) {
+    func setClosureTouchUpInside_k(closure: @escaping () -> Void) {
         self.addTarget(self, action: #selector(callActionClosure(sender:)), for: .touchUpInside)
         objc_setAssociatedObject(self, &touchKey, closure, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }

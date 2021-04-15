@@ -47,7 +47,8 @@ func wk_addNotificationSEL(
     selector: Selector,
     name: String,
     object: Any? = nil) {
-    NotificationCenter.default.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: name), object: object)
+    let notificationName = NSNotification.Name(rawValue: name)
+    NotificationCenter.default.addObserver(observer, selector: selector, name: notificationName, object: object)
 }
 
 func wk_postNotification(_ name: String, object: Any? = nil) {

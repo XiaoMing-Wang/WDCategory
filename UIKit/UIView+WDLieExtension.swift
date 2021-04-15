@@ -11,11 +11,19 @@ import Foundation
 private var onceTap :Void?
 private var doubleTap :Void?
 extension UIView {
-    
-    /**< 在window中的位置  */
-    func locationWithWindow_k() -> CGRect {
+
+    /**< 在window中的Rect  */
+    func locationRectWithWindow_k() -> CGRect {
         guard let window = UIApplication.shared.delegate?.window else { return .zero }
         return self.convert(self.bounds, to: window)
+    }
+
+    /**< 在window中的Point */
+    func locationCenterWithWindow_k() -> CGPoint {
+        let rect = locationRectWithWindow_k()
+        let x = rect.origin.x + (rect.size.width / 2.0)
+        let y = rect.origin.y + (rect.size.height / 2.0)
+        return CGPoint(x: x, y: y)
     }
 
     /**< 单击Selector  */
@@ -40,7 +48,7 @@ extension UIView {
 
     /**< 单击block  */
     @discardableResult
-    func addOnceTappedWithCallback_k(callback: @escaping () -> ()) -> UITapGestureRecognizer {
+    func setOneTappedWithCallback_k(callback: @escaping () -> ()) -> UITapGestureRecognizer {
         let gesture = addTapGesture(taps: 1, touches: 1, selector: #selector(tappedEvent(gesture:)))
         objc_setAssociatedObject(self, &onceTap, callback, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         return gesture
@@ -48,7 +56,7 @@ extension UIView {
 
     /**< 双击block  */
     @discardableResult
-    func addDoubleTappedWithCallback_k(callback: @escaping () -> ()) -> UITapGestureRecognizer {
+    func setDoubleTappedWithCallback_k(callback: @escaping () -> ()) -> UITapGestureRecognizer {
         let gesture = addTapGesture(taps: 2, touches: 1, selector: #selector(tappedEvent(gesture:)))
         objc_setAssociatedObject(self, &doubleTap, callback, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         return gesture
@@ -62,13 +70,13 @@ extension UIView {
         let totalInterval = totalHeight - above!.frame.size.height - nether!.frame.size.height
         let topAbove = (totalInterval - interval) / 2.0
 
-        var rectAbove = above!.frame;
-        rectAbove.origin.y = topAbove;
-        above!.frame = rectAbove;
+        var rectAbove = above!.frame
+        rectAbove.origin.y = topAbove
+        above!.frame = rectAbove
 
-        var rectNether = nether!.frame;
-        rectNether.origin.y = totalHeight - topAbove - nether!.frame.size.height;
-        nether!.frame = rectNether;
+        var rectNether = nether!.frame
+        rectNether.origin.y = totalHeight - topAbove - nether!.frame.size.height
+        nether!.frame = rectNether
     }
     
     /**< 左右居中 */
@@ -79,13 +87,13 @@ extension UIView {
         let totalInterval = totalWidth - above!.frame.size.width - nether!.frame.size.width
         let leftAbove = (totalInterval - interval) / 2.0
 
-        var rectAbove = above!.frame;
-        rectAbove.origin.x = leftAbove;
-        above!.frame = rectAbove;
+        var rectAbove = above!.frame
+        rectAbove.origin.x = leftAbove
+        above!.frame = rectAbove
 
-        var rectNether = nether!.frame;
-        rectNether.origin.x = totalWidth - leftAbove - nether!.frame.size.width;
-        nether!.frame = rectNether;
+        var rectNether = nether!.frame
+        rectNether.origin.x = totalWidth - leftAbove - nether!.frame.size.width
+        nether!.frame = rectNether
     }
 
     /**< 渐现动画 */
@@ -93,10 +101,10 @@ extension UIView {
         let transition = CATransition()
         transition.duration = CFTimeInterval(duration)
         transition.type = .fade
-        transition.subtype = .fromRight;
+        transition.subtype = .fromRight
         self.layer.add(transition, forKey: "fadeAnimation")
     }
-    
+
     /**< 翻页 */
     func pageCurlAnimation_k(duration: CGFloat = 0.5) {
         let transition = CATransition()
