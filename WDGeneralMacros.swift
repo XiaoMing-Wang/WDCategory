@@ -44,11 +44,17 @@ let kNotificationCenter = NotificationCenter.default
 let kUserDefaults = UserDefaults.standard
 
 /**< 获取当前系统时间戳 10位 */
-func kGetCurentTime() -> String {
+func kCurentTimeString() -> String {
     return "\(Int(Date().timeIntervalSince1970))"
 }
 
-func kGetCurentTime_MS() -> String {
+/**< 获取当前系统时间戳 10位 */
+func kCurentTimeInt() -> Int64 {
+    return Int64(Date().timeIntervalSince1970)
+}
+
+/**< 获取当前系统时间戳 13位 */
+func kCurentTime_MS() -> String {
     return "\(Int(Date().timeIntervalSince1970 * 1000))"
 }
 
@@ -61,7 +67,7 @@ func kVersion() -> String {
 }
 
 /**< 状态栏高度 */
-func kStatusBarHeight() -> CGFloat {
+fileprivate func kStatusBarHeight() -> CGFloat {
     if #available(iOS 13, *) {
         return UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
     } else {
@@ -70,7 +76,7 @@ func kStatusBarHeight() -> CGFloat {
 }
 
 /**< iPhoneX */
-func kJudgeIPhoneX() -> Bool {
+fileprivate func kJudgeIPhoneX() -> Bool {
     if #available(iOS 11, *) {
         return UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0 > 0
     } else {
@@ -79,7 +85,7 @@ func kJudgeIPhoneX() -> Bool {
 }
 
 /**< 底部安全距离 */
-func kSafeBottom() -> CGFloat {
+fileprivate func kSafeBottom() -> CGFloat {
     if #available(iOS 11, *) {
         return UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0
     } else {
@@ -165,6 +171,7 @@ func wk_dispatch_after_main_queue(delay: Double, callback: @escaping () -> Void)
 /**< 接收通知  */
 var keyboardShow: String = UIResponder.keyboardWillShowNotification.rawValue
 var keyboardHide: String = UIResponder.keyboardWillHideNotification.rawValue
+
 func wk_addNotificationObserver(observer: Any, sel: Selector, name: String) {
     NotificationCenter.default.addObserver(
         observer,
