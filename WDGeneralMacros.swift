@@ -22,20 +22,25 @@ let kBarHeight: CGFloat = (kBarRemainHeight + kStatusBarHeight())
 let kSafeHeight: CGFloat = kSafeBottom()
 let kTabbarHeight: CGFloat = 49.0
 
+
 /**< 屏幕宽高 */
 let kSWidth: CGFloat = UIScreen.main.bounds.size.width
 let kSHeight: CGFloat = UIScreen.main.bounds.size.height
 let kSScale: CGFloat = UIScreen.main.scale
 
+
 /**< 获取系统版本 */
 let kIOS_Version: CGFloat = CGFloat((UIDevice.current.systemVersion as NSString).floatValue)
 let kCurrentSystemVersion: String = UIDevice.current.systemVersion;
 
+
 /**< 获取当前语言 */
 let kCurrentLanguage: String = NSLocale.preferredLanguages.first!
 
+
 /**< Library 路径 */
 let kLibraryboxPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .allDomainsMask, true).first
+
 
 /**< Window AppDelegate 通知中心和UserDefaults */
 let kWindow = UIApplication.shared.delegate?.window
@@ -43,6 +48,7 @@ let kKeyWindow = UIApplication.shared.keyWindow
 let kAppDelegate = UIApplication.shared.delegate
 let kNotificationCenter = NotificationCenter.default
 let kUserDefaults = UserDefaults.standard
+
 
 /**< 获取当前系统时间戳 10位 */
 func kCurentTimeString() -> String {
