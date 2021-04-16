@@ -32,6 +32,7 @@ extension Array {
         }
         return "" as! Element
     }
+
 }
 
 extension Array where Element: Comparable {
@@ -51,6 +52,13 @@ extension Array where Element: Comparable {
         if count > index {
             remove(at: index)
         }
+    }
+
+    /**< 换位置 */
+    public mutating func swapPlaces(i: Int, j: Int) {
+        let temp = self[j]
+        self[j] = self[i]
+        self[i] = temp
     }
 
 }

@@ -64,6 +64,18 @@ extension String {
         }
     }
     
+    /**< cgFloat */
+    var cgFloat: CGFloat {
+        get {
+            let string = self
+            var cgFloat: CGFloat = 0
+            if let doubleValue = Double(string) {
+                cgFloat = CGFloat(doubleValue)
+            }
+            return cgFloat
+        }
+    }
+    
     /**< intValue */
     var intValue: Int {
         get {
